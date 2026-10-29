@@ -35,7 +35,7 @@
         "name": "PropertyHits - Distributor Rel Pintu Garasi WINA & LUCKY",
         "legalName": "PropertyHits",
         "url": "https://propertyhits.co.id/",
-        "logo": "https://propertyhits.co.id/assets/images/logos/propertyhits-logo-transparent.png",
+        "logo": "https://propertyhits.co.id/assets/images/logos/propertyhits-logo.webp",
         "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuB2DaZdPKLN6eovdg19QYYsNBRy-m-oqaaKyPRA06hBCjgHyj1GaQnD3uzHi7KMy_n3FBJuqYQyE-3smvP0Otdh34BkaJFvy__c9dfMesiPykFQ_wTLoaWYSVLAQnaZ5ztPFLWLTHw7WBMU1EtNN0EWHVjnYKQRVZQBdzNLs_g-DCyPsDyNiRTB0MQ9MhzV-P4UicxXykVwfaTXOT2rgsQovGJpOlu8Sapg9ipTGDKBE3LImckcakVSJEs7MVE0hIfqMw",
         "telephone": "+6285711749464",
         "priceRange": "Rp 16.800 - Rp 1.557.885",
@@ -65,7 +65,7 @@
         "@id": "https://propertyhits.co.id/#organization",
         "name": "PropertyHits",
         "url": "https://propertyhits.co.id/",
-        "logo": "https://propertyhits.co.id/assets/images/logos/propertyhits-logo-transparent.png",
+        "logo": "https://propertyhits.co.id/assets/images/logos/propertyhits-logo.webp",
         "description": "Distributor resmi komponen hardware rel dan aksesoris pintu garasi kemitraan langsung dengan PT. Karya Mandiri Sepakat (Pabrikan WINA) dan CV. Karya Mandiri Maju (Pabrikan LUCKY).",
         "telephone": "+6285711749464",
         "address": {
@@ -142,39 +142,33 @@
     ]
   }
   </script>
-  <!-- Tailwind CSS CDN with forms and container queries -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              dark: '#121212',
-              charcoal: '#1E1E20',
-              gray: '#71717A',
-              lightGray: '#F4F4F5',
-              border: '#E4E4E7',
-              accent: '#27272A'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Google Fonts: Asynchronous Non-Blocking Pattern (PageSpeed 95+ Mobile Optimized) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+
+  <!-- Preload Critical Hero Banner Image (LCP Optimization) -->
+  <link rel="preload" as="image" href="/assets/images/hero-banner.webp" type="image/webp" fetchpriority="high">
+
+  <!-- Precompiled & Minified Tailwind CSS (Eliminates Runtime Compiler TBT on Mobile) -->
+  <link rel="stylesheet" href="/assets/css/tailwind.min.css">
+  <link rel="stylesheet" href="/src/index.css">
+
   <style data-purpose="typography">
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       color: #18181b;
       background-color: #ffffff;
       -webkit-font-smoothing: antialiased;
     }
   </style>
   <style data-purpose="custom-utilities">
+    /* Global layout-shift defense (CLS: 0) */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
     .custom-scroll::-webkit-scrollbar {
       width: 5px;
     }
@@ -190,147 +184,6 @@
       transform: scale(0.97);
     }
   </style>
-  <!-- Early SPA Router & Navigation Handlers (Guarantees immediate availability on header/footer clicks) -->
-  <script>
-    window.sembunyikanSemuaHalaman = function() {
-      const ids = [
-        'halaman-beranda-utama',
-        'halaman-baca-artikel',
-        'halaman-daftar-artikel',
-        'halaman-tentang-kami',
-        'halaman-kebijakan'
-      ];
-      ids.forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.classList.add('hidden');
-      });
-    };
-
-    window.tampilkanHalamanBeranda = function(scrollKeAtas) {
-      if (typeof currentActiveArticleSlug !== 'undefined') currentActiveArticleSlug = null;
-      window.sembunyikanSemuaHalaman();
-      var homeContainer = document.getElementById('halaman-beranda-utama');
-      if (homeContainer) homeContainer.classList.remove('hidden');
-      if (typeof updateSeoMetaTags === 'function') updateSeoMetaTags(null);
-      if (scrollKeAtas !== false) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    };
-
-    window.tampilkanHalamanTentangKami = function(pushState) {
-      if (typeof currentActiveArticleSlug !== 'undefined') currentActiveArticleSlug = null;
-      window.sembunyikanSemuaHalaman();
-      var el = document.getElementById('halaman-tentang-kami');
-      if (el) el.classList.remove('hidden');
-      if (pushState !== false) {
-        try { window.history.pushState({ page: 'tentang-kami' }, '', '#tentang-kami'); } catch(e){}
-      }
-      document.title = 'Tentang PropertyHits — Solusi Mekanikal Pintu Garasi Presisi';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    window.tampilkanHalamanKebijakan = function(pushState) {
-      if (typeof currentActiveArticleSlug !== 'undefined') currentActiveArticleSlug = null;
-      window.sembunyikanSemuaHalaman();
-      var el = document.getElementById('halaman-kebijakan');
-      if (el) el.classList.remove('hidden');
-      if (pushState !== false) {
-        try { window.history.pushState({ page: 'kebijakan' }, '', '#kebijakan'); } catch(e){}
-      }
-      document.title = 'Kebijakan Layanan & Ketentuan Garansi Resmi — PropertyHits';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    window.toggleMobileDrawer = function() {
-      var drawer = document.getElementById('mobile-nav-drawer');
-      if (!drawer) return;
-      var isClosed = drawer.classList.contains('pointer-events-none');
-      if (isClosed) {
-        drawer.classList.remove('pointer-events-none', 'opacity-0');
-        var panel = drawer.querySelector('.drawer-panel');
-        if (panel) panel.classList.remove('translate-x-full');
-      } else {
-        window.closeMobileDrawer();
-      }
-    };
-
-    window.closeMobileDrawer = function() {
-      var drawer = document.getElementById('mobile-nav-drawer');
-      if (!drawer) return;
-      var panel = drawer.querySelector('.drawer-panel');
-      if (panel) panel.classList.add('translate-x-full');
-      drawer.classList.add('opacity-0', 'pointer-events-none');
-    };
-
-    window.navigasiKeTentangKami = function(event) {
-      if (event && event.preventDefault) event.preventDefault();
-      window.closeMobileDrawer();
-      window.tampilkanHalamanTentangKami(true);
-    };
-
-    window.navigasiKeKebijakan = function(event) {
-      if (event && event.preventDefault) event.preventDefault();
-      window.closeMobileDrawer();
-      window.tampilkanHalamanKebijakan(true);
-    };
-
-    window.navigasiKeBeranda = function(event, targetHash) {
-      if (event && event.preventDefault) event.preventDefault();
-      window.closeMobileDrawer();
-      var newUrl = window.location.pathname + (targetHash ? targetHash : '');
-      try { window.history.pushState({ page: 'home' }, '', newUrl); } catch(e){}
-      window.tampilkanHalamanBeranda(false);
-      if (targetHash) {
-        setTimeout(function() {
-          var el = document.querySelector(targetHash);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    };
-
-    window.navigasiKeDaftarArtikel = function(event) {
-      if (event && event.preventDefault) event.preventDefault();
-      window.closeMobileDrawer();
-      if (typeof tampilkanHalamanDaftarArtikel === 'function') {
-        tampilkanHalamanDaftarArtikel();
-      } else {
-        window.location.search = '?blog=semua';
-      }
-    };
-
-    window.navigasiKeArtikel = function(event, slug) {
-      if (event && event.preventDefault) event.preventDefault();
-      window.closeMobileDrawer();
-      if (typeof ARTICLES !== 'undefined' && typeof tampilkanHalamanArtikel === 'function') {
-        var art = ARTICLES.find(function(a) { return a.slug === slug || String(a.id) === String(slug); });
-        if (art) {
-          try { window.history.pushState({ page: 'article', slug: art.slug }, '', window.location.pathname + '?artikel=' + art.slug); } catch(e){}
-          tampilkanHalamanArtikel(art);
-          return;
-        }
-      }
-      window.location.search = '?artikel=' + slug;
-    };
-
-    // Auto router listener for hash changes
-    window.addEventListener('hashchange', function() {
-      if (window.location.hash === '#tentang-kami') {
-        window.tampilkanHalamanTentangKami(false);
-      } else if (window.location.hash === '#kebijakan' || window.location.hash === '#kebijakan-garansi') {
-        window.tampilkanHalamanKebijakan(false);
-      }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.location.hash === '#tentang-kami') {
-        window.tampilkanHalamanTentangKami(false);
-      } else if (window.location.hash === '#kebijakan' || window.location.hash === '#kebijakan-garansi') {
-        window.tampilkanHalamanKebijakan(false);
-      }
-    });
-  </script>
 </head>
 <body class="bg-white text-zinc-900 selection:bg-zinc-900 selection:text-white relative">
 
@@ -346,11 +199,16 @@
         onclick="navigasiKeBeranda(event)"
         aria-label="PropertyHits.co.id Beranda"
       >
-        <div class="h-9 sm:h-11 flex items-center justify-start">
+        <div class="h-9 sm:h-11 w-36 sm:w-44 flex items-center justify-start flex-shrink-0" style="aspect-ratio: 180/40; width: 144px; min-height: 36px;">
           <img 
-            src="/assets/images/logos/propertyhits-logo-transparent.png" 
+            src="/assets/images/logos/propertyhits-logo.webp" 
             alt="Distributor Rel Pintu Garasi WINA dan LUCKY Resmi - PropertyHits Jakarta" 
             class="h-8 sm:h-10 w-auto object-contain"
+            width="180"
+            height="40"
+            style="max-width: 100%; height: auto; aspect-ratio: 180/40;"
+            loading="eager"
+            decoding="async"
           />
         </div>
       </a>
@@ -419,11 +277,16 @@
     <div class="drawer-panel absolute top-0 right-0 w-[300px] max-w-[85vw] h-full bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out z-10 p-5 overflow-y-auto">
       <div>
         <div class="flex items-center justify-between pb-4 mb-4 border-b border-zinc-100">
-          <div class="h-8 flex items-center justify-start">
+          <div class="h-8 w-[140px] flex items-center justify-start flex-shrink-0" style="aspect-ratio: 140/32; min-height: 28px;">
             <img 
-              src="/assets/images/logos/propertyhits-logo-transparent.png" 
+              src="/assets/images/logos/propertyhits-logo.webp" 
               alt="Distributor Rel Pintu Garasi WINA dan LUCKY - PropertyHits" 
               class="h-7 w-auto object-contain" 
+              width="140"
+              height="32"
+              style="max-width: 100%; height: auto; aspect-ratio: 140/32;"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <button type="button" onclick="closeMobileDrawer()" class="w-8 h-8 rounded-full bg-zinc-100 hover:bg-zinc-200 text-zinc-700 flex items-center justify-center text-lg active:scale-90 transition-all" aria-label="Tutup Menu">✕</button>
@@ -484,16 +347,19 @@
       <!-- ========================================== -->
       <!-- 2. HERO SECTION (CLEAN MINIMALIST INDUSTRIAL)-->
       <!-- ========================================== -->
-      <section id="beranda" aria-labelledby="hero-title" class="relative pt-8 pb-12 sm:pt-14 sm:pb-16 bg-white border-b border-zinc-100 overflow-hidden" data-purpose="hero-section">
+      <section id="beranda" aria-labelledby="hero-title" class="relative pt-8 pb-12 sm:pt-14 sm:pb-16 bg-white border-b border-zinc-100 overflow-hidden min-h-[560px] sm:min-h-[620px]" style="min-height: 560px;" data-purpose="hero-section">
         <!-- Background Image Hero (WINA-LUCKY Hardware & Garasi Modern) -->
-        <div class="absolute inset-0 z-0 pointer-events-none select-none">
+        <div class="absolute inset-0 z-0 pointer-events-none select-none w-full h-full overflow-hidden" style="min-height: 100%; aspect-ratio: 4/3;">
           <img 
-            src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@7b822338ad2adef6ed5e6810e3122a2ea5750a62/file_000000000fe48207ac6781b405046832.png" 
+            src="/assets/images/hero-banner.webp" 
             alt="Komponen Rel dan Roda Pintu Garasi WINA LUCKY PropertyHits Jakarta" 
             class="w-full h-full object-cover object-center sm:object-right md:object-center opacity-70" 
+            width="800"
+            height="600"
+            style="max-width: 100%; height: auto; aspect-ratio: 4/3;"
+            fetchpriority="high"
             loading="eager"
-            decoding="sync"
-            referrerpolicy="no-referrer"
+            decoding="async"
           />
         </div>
 
@@ -658,7 +524,7 @@
                   class="py-3 px-3 sm:px-4 rounded-xl border border-white bg-white text-zinc-950 font-bold text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2"
                 >
                   <div class="h-4 sm:h-4.5 w-10 overflow-hidden flex items-center justify-center flex-shrink-0">
-                    <img src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@main/file_00000000158082079cd88ab428d4f083.png" alt="WINA" class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" referrerpolicy="no-referrer" />
+                    <img src="/assets/images/logos/wina-logo-compact.webp" alt="WINA" class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" width="42" height="28" loading="eager" decoding="async" />
                   </div>
                   <span>WINA (Premium)</span>
                 </button>
@@ -669,12 +535,12 @@
                   class="py-3 px-3 sm:px-4 rounded-xl border border-zinc-700 bg-zinc-950 text-zinc-400 font-semibold text-xs uppercase tracking-wider hover:border-zinc-500 hover:text-white transition-all flex items-center justify-center gap-2"
                 >
                   <div class="h-4 sm:h-4.5 w-10 overflow-hidden flex items-center justify-center flex-shrink-0">
-                    <img src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@main/file_00000000d73c8207b85c21d3725b6c31.png" alt="LUCKY" class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" referrerpolicy="no-referrer" />
+                    <img src="/assets/images/logos/lucky-logo-compact.webp" alt="LUCKY" class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" width="42" height="28" loading="eager" decoding="async" />
                   </div>
                   <span>LUCKY (Ekonomis)</span>
                 </button>
               </div>
-              <input type="hidden" id="form-selected-brand" value="WINA"/>
+              <input type="hidden" id="form-selected-brand" value="WINA" aria-hidden="true"/>
             </div>
 
             <!-- 2. Pilih Kebutuhan Anda -->
@@ -708,7 +574,7 @@
                   Hardware Pintu Lipat
                 </button>
               </div>
-              <input type="hidden" id="form-selected-kebutuhan" value="Hardware Sliding Menikung"/>
+              <input type="hidden" id="form-selected-kebutuhan" value="Hardware Sliding Menikung" aria-hidden="true"/>
             </div>
 
             <!-- 3. Jumlah Daun Pintu & Sistem Bukaan -->
@@ -720,6 +586,7 @@
                 <input 
                   type="text" 
                   id="form-jumlah-daun" 
+                  aria-label="Jumlah Daun Pintu (wajib)" 
                   required
                   placeholder="contoh: 7 daun" 
                   class="w-full bg-zinc-950 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-colors"
@@ -733,6 +600,7 @@
                 <input 
                   type="text" 
                   id="form-sistem-bukaan" 
+                  aria-label="Sistem Bukaan Pintu" 
                   placeholder="contoh: 7 daun tikung kanan kiri atau 7 daun lipat 3:4" 
                   class="w-full bg-zinc-950 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-colors"
                 />
@@ -747,9 +615,11 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- Tinggi Daun Pintu -->
                 <div class="relative">
+                  <label for="form-tinggi-daun" class="sr-only">Tinggi Daun Pintu dalam meter</label>
                   <input 
                     type="number" 
                     id="form-tinggi-daun" 
+                    aria-label="Tinggi Daun Pintu dalam meter" 
                     placeholder="Tinggi Daun Pintu" 
                     class="w-full bg-zinc-950 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white rounded-xl pl-4 pr-14 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-colors"
                   />
@@ -759,9 +629,11 @@
                 </div>
                 <!-- Lebar Daun Pintu -->
                 <div class="relative">
+                  <label for="form-lebar-daun" class="sr-only">Lebar Daun Pintu dalam meter</label>
                   <input 
                     type="number" 
                     id="form-lebar-daun" 
+                    aria-label="Lebar Daun Pintu dalam meter" 
                     placeholder="Lebar Daun Pintu" 
                     class="w-full bg-zinc-950 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white rounded-xl pl-4 pr-14 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-colors"
                   />
@@ -781,6 +653,7 @@
                 <input 
                   type="text" 
                   id="form-material-pintu" 
+                  aria-label="Material Daun Pintu" 
                   placeholder="contoh: kayu, besi" 
                   class="w-full bg-zinc-950 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-colors"
                 />
@@ -793,6 +666,7 @@
                 <input 
                   type="text" 
                   id="form-lokasi-proyek" 
+                  aria-label="Lokasi Proyek atau Wilayah Pengiriman" 
                   placeholder="contoh: Jakarta Barat / Bintaro" 
                   class="w-full bg-zinc-950 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-colors"
                 />
@@ -807,6 +681,7 @@
               <input 
                 type="tel" 
                 id="form-nomor-wa" 
+                aria-label="Nomor WhatsApp Anda (wajib)" 
                 required
                 placeholder="contoh: 08123456789" 
                 class="w-full bg-zinc-950 border border-zinc-800 focus:border-white focus:ring-1 focus:ring-white rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-500 outline-none transition-colors"
@@ -918,12 +793,13 @@
             <div class="flex items-center justify-center flex-shrink-0 bg-transparent py-1">
               <div class="h-16 sm:h-20 md:h-24 w-36 sm:w-44 md:w-52 overflow-hidden flex items-center justify-center">
                 <img 
-                  src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@main/file_00000000158082079cd88ab428d4f083.png" 
+                  src="/assets/images/logos/wina-logo-compact.webp" 
                   alt="Logo Resmi Pabrikan WINA - PT. Karya Mandiri Sepakat" 
                   class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" 
+                  width="200"
+                  height="80"
                   loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer" 
+                  decoding="async" 
                 />
               </div>
             </div>
@@ -973,12 +849,13 @@
             <div class="flex items-center justify-center flex-shrink-0 bg-transparent py-1">
               <div class="h-16 sm:h-20 md:h-24 w-36 sm:w-44 md:w-52 overflow-hidden flex items-center justify-center">
                 <img 
-                  src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@main/file_00000000d73c8207b85c21d3725b6c31.png" 
+                  src="/assets/images/logos/lucky-logo-compact.webp" 
                   alt="Logo Resmi Pabrikan LUCKY - CV. Karya Mandiri Maju" 
                   class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" 
+                  width="200"
+                  height="80"
                   loading="lazy"
-                  decoding="async"
-                  referrerpolicy="no-referrer" 
+                  decoding="async" 
                 />
               </div>
             </div>
@@ -1060,9 +937,9 @@
         <article class="group cursor-pointer flex flex-col transition-all">
           <div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-zinc-100 mb-2.5 shadow-sm">
             <a href="?artikel=panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat" onclick="navigasiKeArtikel(event, 'panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat')" class="block w-full h-full" title="Panduan Menghitung Jumlah Daun &amp; Rel Pintu Garasi Tikung vs Lipat">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcZEk3MTh2OEFF18ZtgF0N5gMuSzkY5JVU2_lmsS069WVu6SI7UGQm7pCvAOYsPCz3QcPvav2Ce0OoMonmhXCbnbACFAyuV07r55zCBFHheAvwS5YyNzhe9oFootK6fQ-kBiUQKQ2kLJEFgMTomPAe9AD1bbO_cM0dh6p1WZsATBswE0Usuwy6K4Mjf57b4U4Cb3s5xAmMX4edIzsPLL4Jc0jQXxjQbMiUuMQ4SnJyzi8IKAGJAjpi" alt="Panduan Menghitung Jumlah Daun &amp; Rel Pintu Garasi Tikung vs Lipat" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcZEk3MTh2OEFF18ZtgF0N5gMuSzkY5JVU2_lmsS069WVu6SI7UGQm7pCvAOYsPCz3QcPvav2Ce0OoMonmhXCbnbACFAyuV07r55zCBFHheAvwS5YyNzhe9oFootK6fQ-kBiUQKQ2kLJEFgMTomPAe9AD1bbO_cM0dh6p1WZsATBswE0Usuwy6K4Mjf57b4U4Cb3s5xAmMX4edIzsPLL4Jc0jQXxjQbMiUuMQ4SnJyzi8IKAGJAjpi" alt="Panduan Menghitung Jumlah Daun &amp; Rel Pintu Garasi Tikung vs Lipat" width="400" height="250" style="max-width: 100%; height: auto; aspect-ratio: 16/10;" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </a>
-            <button type="button" onclick="toggleBookmark(event, 'panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat')" class="bookmark-btn-panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel">
+            <button type="button" onclick="toggleBookmark(event, 'panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat')" class="bookmark-btn-panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel" aria-label="Tandai atau simpan artikel ini ke bookmark">
               <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
             </button>
           </div>
@@ -1088,9 +965,9 @@
         <article class="group cursor-pointer flex flex-col transition-all">
           <div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-zinc-100 mb-2.5 shadow-sm">
             <a href="?artikel=perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda" onclick="navigasiKeArtikel(event, 'perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda')" class="block w-full h-full" title="Perbedaan Rel Garasi WINA vs LUCKY: Mana yang Tepat untuk Proyek Anda?">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjlI_2QmlCYaxoCQhFbEnsbt-yo-MG77Hig1fFtVkCov3HZbJbB6Ur6uLkP4-JzgEY_IzCzGKzg4bnyH4ARMN766XR4Qz_qZk5c4tBdJ43JQMdL8JPsnH2kw7YlILwENv8lyg9xcF17KNGNTZokukpfUhk9En6UEoQWLPw24ygvUlDz2cVSxFH6W5os1aK2YCXGxmWL-VLQRd0H4xWJMZngkwMMATeloET4dFVqAFdDpwUk5f-hYML" alt="Perbedaan Rel Garasi WINA vs LUCKY" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjlI_2QmlCYaxoCQhFbEnsbt-yo-MG77Hig1fFtVkCov3HZbJbB6Ur6uLkP4-JzgEY_IzCzGKzg4bnyH4ARMN766XR4Qz_qZk5c4tBdJ43JQMdL8JPsnH2kw7YlILwENv8lyg9xcF17KNGNTZokukpfUhk9En6UEoQWLPw24ygvUlDz2cVSxFH6W5os1aK2YCXGxmWL-VLQRd0H4xWJMZngkwMMATeloET4dFVqAFdDpwUk5f-hYML" alt="Perbedaan Rel Garasi WINA vs LUCKY" width="400" height="250" style="max-width: 100%; height: auto; aspect-ratio: 16/10;" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </a>
-            <button type="button" onclick="toggleBookmark(event, 'perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda')" class="bookmark-btn-perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel">
+            <button type="button" onclick="toggleBookmark(event, 'perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda')" class="bookmark-btn-perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel" aria-label="Tandai atau simpan artikel ini ke bookmark">
               <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
             </button>
           </div>
@@ -1116,9 +993,9 @@
         <article class="group cursor-pointer flex flex-col transition-all">
           <div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-zinc-100 mb-2.5 shadow-sm">
             <a href="?artikel=tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun" onclick="navigasiKeArtikel(event, 'tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun')" class="block w-full h-full" title="Tips Perawatan Komponen Rel &amp; Roda Garasi agar Awet Puluhan Tahun">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsHazOzaIG5a4-5vBcXF9ikqaH_49sb6JBoVoeWVwYC8pNvkR3APOvji_tSXGwbHgAiIv0mTxQBJntGq9h_4SL2iQjU88MEIdAHnIHwVt3Q6_V8VdpfXppOxcFUW0yiCGkAqW8GSs7EOU0pPnsYL92rTjA07sw1h5RekZxtW4Z-8Flys6QINblh5zBr3BGlHduUEq1N6w60fYvar33bnTgI_3bsCN0ojDsdIRrVE5cyxhTvJ2kwGLd" alt="Tips Perawatan Komponen Rel &amp; Roda Garasi" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsHazOzaIG5a4-5vBcXF9ikqaH_49sb6JBoVoeWVwYC8pNvkR3APOvji_tSXGwbHgAiIv0mTxQBJntGq9h_4SL2iQjU88MEIdAHnIHwVt3Q6_V8VdpfXppOxcFUW0yiCGkAqW8GSs7EOU0pPnsYL92rTjA07sw1h5RekZxtW4Z-8Flys6QINblh5zBr3BGlHduUEq1N6w60fYvar33bnTgI_3bsCN0ojDsdIRrVE5cyxhTvJ2kwGLd" alt="Tips Perawatan Komponen Rel &amp; Roda Garasi" width="400" height="250" style="max-width: 100%; height: auto; aspect-ratio: 16/10;" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </a>
-            <button type="button" onclick="toggleBookmark(event, 'tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun')" class="bookmark-btn-tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel">
+            <button type="button" onclick="toggleBookmark(event, 'tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun')" class="bookmark-btn-tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel" aria-label="Tandai atau simpan artikel ini ke bookmark">
               <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
             </button>
           </div>
@@ -1144,9 +1021,9 @@
         <article class="group cursor-pointer flex flex-col transition-all">
           <div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-zinc-100 mb-2.5 shadow-sm">
             <a href="?artikel=standar-instalasi-rel-atas-bracket-gantung" onclick="navigasiKeArtikel(event, 'standar-instalasi-rel-atas-bracket-gantung')" class="block w-full h-full" title="Standar Instalasi Rel Atas &amp; Bracket Gantung">
-              <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztp-mu6royur3rbb06@resize_w1080_nl.webp" alt="Standar Instalasi Rel Atas &amp; Bracket Gantung" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztp-mu6royur3rbb06@resize_w1080_nl.webp" alt="Standar Instalasi Rel Atas &amp; Bracket Gantung" width="400" height="250" style="max-width: 100%; height: auto; aspect-ratio: 16/10;" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </a>
-            <button type="button" onclick="toggleBookmark(event, 'standar-instalasi-rel-atas-bracket-gantung')" class="bookmark-btn-standar-instalasi-rel-atas-bracket-gantung absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel">
+            <button type="button" onclick="toggleBookmark(event, 'standar-instalasi-rel-atas-bracket-gantung')" class="bookmark-btn-standar-instalasi-rel-atas-bracket-gantung absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel" aria-label="Tandai atau simpan artikel ini ke bookmark">
               <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
             </button>
           </div>
@@ -1296,7 +1173,7 @@
 
         <h1 id="detail-article-title" class="text-3xl sm:text-4xl lg:text-[44px] font-black tracking-tight text-zinc-950 leading-[1.18] mb-6">
           Judul Artikel Edukasi Hardware Pintu Garasi
-        </h1>
+        </h2>
 
         <!-- Author Profile Box -->
         <div class="flex items-center justify-between p-4 rounded-2xl bg-zinc-50 border border-zinc-200/80 mb-8">
@@ -1332,6 +1209,11 @@
             id="detail-article-img" 
             src="" 
             alt="Thumbnail Artikel Teknis" 
+            width="800" 
+            height="450" 
+            style="max-width: 100%; height: auto; aspect-ratio: 16/9;" 
+            loading="lazy" 
+            decoding="async" 
             class="w-full h-full object-contain"
             onerror="this.onerror=null; this.src='https://down-id.img.susercontent.com/file/id-11134207-81ztn-mu6u3z41rwuaf8@resize_w1080_nl.webp';"
           />
@@ -1427,6 +1309,11 @@
             Blog &amp; Panduan Teknis Komponen Pintu Garasi
           </span>
         </nav>
+        <div class="mt-3">
+          <h2 class="text-xl sm:text-2xl font-black text-zinc-950 tracking-tight">
+            Pusat Edukasi &amp; Panduan Teknis Komponen Rel Pintu Garasi
+          </h2>
+        </div>
 
         <!-- Back Button & Sync Button -->
         <div class="flex items-center gap-2.5">
@@ -1489,9 +1376,11 @@
 
         <!-- Search Input -->
         <div class="relative w-full md:w-80">
+          <label for="portal-search-input" class="sr-only">Cari artikel atau kata kunci</label>
           <input 
             type="text" 
             id="portal-search-input" 
+            aria-label="Cari artikel atau kata kunci panduan teknis" 
             oninput="filterPortalArticles(this.value)"
             placeholder="Cari artikel atau kata kunci..." 
             class="w-full bg-zinc-50 border border-zinc-200 focus:border-teal-700 rounded-xl pl-9 pr-4 py-2 text-xs text-zinc-900 outline-none transition-colors"
@@ -1583,9 +1472,9 @@
             Mitra Terpercaya Sejak 1993
           </span>
         </div>
-        <h1 id="profil-title" class="text-2xl sm:text-4xl lg:text-5xl font-black text-zinc-950 tracking-tight leading-tight mb-4">
+        <h2 id="profil-title" class="text-2xl sm:text-4xl lg:text-5xl font-black text-zinc-950 tracking-tight leading-tight mb-4">
           Tentang PropertyHits — Solusi Mekanikal Pintu Garasi Presisi
-        </h1>
+        </h2>
         <p class="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal max-w-3xl">
           PropertyHits adalah distributor resmi dan pusat pengadaan komponen sistem rel serta roda pintu garasi geser (sliding) tikung dan lipat (folding). Menjadi mitra resmi distribusi terdepan untuk produk <strong>WINA</strong> dari pabrikan <strong>PT. Karya Mandiri Sepakat</strong> (sejak 1993) dan produk <strong>LUCKY</strong> dari pabrikan <strong>CV. Karya Mandiri Maju</strong> di seluruh Indonesia.
         </p>
@@ -1607,12 +1496,12 @@
         <div class="flex items-center gap-3">
           <div class="h-11 px-3 py-1 bg-white rounded-xl border border-zinc-200 shadow-2xs flex items-center justify-center">
             <div class="h-7 w-16 overflow-hidden flex items-center justify-center">
-              <img src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@main/file_00000000158082079cd88ab428d4f083.png" alt="WINA PT Karya Mandiri Sepakat" class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              <img src="/assets/images/logos/wina-logo-compact.webp" alt="WINA PT Karya Mandiri Sepakat" class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" width="64" height="28" loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="h-11 px-3 py-1 bg-white rounded-xl border border-zinc-200 shadow-2xs flex items-center justify-center">
             <div class="h-7 w-16 overflow-hidden flex items-center justify-center">
-              <img src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@main/file_00000000d73c8207b85c21d3725b6c31.png" alt="LUCKY CV Karya Mandiri Maju" class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+              <img src="/assets/images/logos/lucky-logo-compact.webp" alt="LUCKY CV Karya Mandiri Maju" class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" width="64" height="28" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -1823,9 +1712,9 @@
             Proteksi Resmi Pembeli
           </span>
         </div>
-        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-zinc-950 tracking-tight leading-tight mb-4">
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-zinc-950 tracking-tight leading-tight mb-4">
           Kebijakan Layanan &amp; Ketentuan Garansi Resmi
-        </h1>
+        </h2>
         <p class="text-sm sm:text-base text-zinc-600 leading-relaxed font-normal max-w-3xl">
           Komitmen PropertyHits dalam memastikan setiap pesanan komponen rel dan roda pintu garasi WINA dan LUCKY tiba dengan aman, presisi sempurna, serta dilindungi garansi resmi distributor.
         </p>
@@ -1996,9 +1885,11 @@
             <div class="bg-white rounded-xl px-3 py-1.5 inline-block shadow-sm">
               <div class="h-8 sm:h-9 flex items-center justify-center">
                 <img 
-                  src="/assets/images/logos/propertyhits-logo-transparent.png" 
+                  src="/assets/images/logos/propertyhits-logo.webp" 
                   alt="Distributor Rel Pintu Garasi WINA dan LUCKY Resmi - PropertyHits Jakarta" 
                   class="h-7 sm:h-8 w-auto object-contain" 
+                  width="140" 
+                  height="32" 
                   loading="lazy"
                   decoding="async"
                   referrerpolicy="no-referrer" 
@@ -2016,24 +1907,26 @@
               <div class="bg-white rounded-lg px-2 py-1 h-7 flex items-center">
                 <div class="h-5 w-12 overflow-hidden flex items-center justify-center">
                   <img 
-                    src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@main/file_00000000158082079cd88ab428d4f083.png" 
+                    src="/assets/images/logos/wina-logo-compact.webp" 
                     alt="Pabrikan WINA - PT. Karya Mandiri Sepakat" 
                     class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" 
+                    width="48" 
+                    height="20" 
                     loading="lazy"
-                    decoding="async"
-                    referrerpolicy="no-referrer" 
+                    decoding="async" 
                   />
                 </div>
               </div>
               <div class="bg-white rounded-lg px-2 py-1 h-7 flex items-center">
                 <div class="h-5 w-12 overflow-hidden flex items-center justify-center">
                   <img 
-                    src="https://cdn.jsdelivr.net/gh/muhammadhammud001-collab/cdn-gambar@main/file_00000000d73c8207b85c21d3725b6c31.png" 
+                    src="/assets/images/logos/lucky-logo-compact.webp" 
                     alt="Pabrikan LUCKY - CV. Karya Mandiri Maju" 
                     class="w-full h-full object-contain scale-[1.85] mix-blend-multiply" 
+                    width="48" 
+                    height="20" 
                     loading="lazy"
-                    decoding="async"
-                    referrerpolicy="no-referrer" 
+                    decoding="async" 
                   />
                 </div>
               </div>
@@ -2119,7 +2012,7 @@
       <!-- Image Area -->
       <div class="md:w-5/12 bg-zinc-50 p-2.5 sm:p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-zinc-100 relative flex-shrink-0">
         <div class="w-full h-32 sm:h-52 md:h-72 flex items-center justify-center overflow-hidden rounded-xl sm:rounded-2xl bg-white p-2 sm:p-4 border border-zinc-200/60 shadow-inner">
-          <img id="modal-product-img" src="" alt="Product Image" class="max-h-28 sm:max-h-48 object-contain transition-transform duration-300 hover:scale-105"/>
+          <img id="modal-product-img" src="" alt="Product Image" width="200" height="200" loading="lazy" decoding="async" class="max-h-28 sm:max-h-48 object-contain transition-transform duration-300 hover:scale-105"/>
         </div>
         <span id="modal-brand-tag" class="mt-2 sm:mt-4 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-zinc-500 bg-zinc-200/70 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-center">
           PT. KARYA MANDIRI SEPAKAT
@@ -2145,7 +2038,7 @@
             </span>
             <span class="text-[10px] sm:text-[11px] text-zinc-400 font-semibold uppercase tracking-wider">Garansi Pabrikan</span>
           </div>
-          <h3 id="modal-product-title" class="text-base sm:text-2xl font-black text-zinc-950 mb-1 leading-snug">
+          <h2 id="modal-product-title" class="text-base sm:text-2xl font-black text-zinc-950 mb-1 leading-snug">
             Nama Produk
           </h3>
           <p id="modal-product-desc" class="text-[11px] sm:text-xs text-zinc-500 mb-2.5 sm:mb-4 leading-relaxed">
@@ -2172,7 +2065,8 @@
               <button type="button" onclick="updateModalQty(-1)" class="w-7 sm:w-9 h-7 sm:h-9 flex items-center justify-center text-sm font-bold text-zinc-700 hover:bg-zinc-200 btn-press">
                 −
               </button>
-              <input type="number" id="modal-qty-input" value="1" min="1" max="999" oninput="onModalQtyInput(this)" class="w-10 sm:w-12 h-7 sm:h-9 text-center text-xs font-bold bg-transparent border-0 focus:ring-0 p-0 text-zinc-900"/>
+              <label for="modal-qty-input" class="sr-only">Jumlah kuantitas pemesanan</label>
+              <input type="number" id="modal-qty-input" aria-label="Jumlah kuantitas produk" value="1" min="1" max="999" oninput="onModalQtyInput(this)" class="w-10 sm:w-12 h-7 sm:h-9 text-center text-xs font-bold bg-transparent border-0 focus:ring-0 p-0 text-zinc-900"/>
               <button type="button" onclick="updateModalQty(1)" class="w-7 sm:w-9 h-7 sm:h-9 flex items-center justify-center text-sm font-bold text-zinc-700 hover:bg-zinc-200 btn-press">
                 +
               </button>
@@ -2257,9 +2151,11 @@
           <p class="text-xs text-zinc-500">
             *Semua harga tercantum merupakan harga resmi pricelist distributor.
           </p>
+          <label for="catalog-search-input" class="sr-only">Cari nama komponen pada tabel katalog</label>
           <input 
             type="text" 
             id="catalog-search-input" 
+            aria-label="Cari nama komponen pada tabel katalog" 
             oninput="filterCatalogTable(this.value)"
             placeholder="Cari nama komponen..." 
             class="bg-zinc-50 border border-zinc-300 rounded-xl px-4 py-1.5 text-xs text-zinc-900 focus:border-zinc-950 outline-none w-64"
@@ -2329,9 +2225,11 @@
 
       <!-- Full-Width Search Bar Anti-Lag -->
       <div class="px-3.5 sm:px-6 pt-3 pb-2.5 bg-white border-b border-zinc-200 flex-shrink-0">
+        <label for="modal-search-input" class="sr-only">Cari nama komponen WINA</label>
         <input 
           type="text" 
           id="modal-search-input" 
+          aria-label="Cari nama komponen WINA seperti roda, rel, engsel, atau bracket" 
           oninput="filterWinaCatalog()"
           placeholder="Cari nama komponen (misal: roda, rel, engsel, bracket)..." 
           class="w-full px-3.5 py-2 text-zinc-900 bg-zinc-100 border border-zinc-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-zinc-900 outline-none text-xs sm:text-sm placeholder-zinc-400"
@@ -2418,9 +2316,11 @@
 
       <!-- Full-Width Search Bar Anti-Lag -->
       <div class="px-3.5 sm:px-6 pt-3 pb-2.5 bg-white border-b border-zinc-200 flex-shrink-0">
+        <label for="lucky-modal-search-input" class="sr-only">Cari nama komponen LUCKY</label>
         <input 
           type="text" 
           id="lucky-modal-search-input" 
+          aria-label="Cari nama komponen LUCKY seperti roda, rel, engsel, atau bracket" 
           oninput="filterLuckyCatalog()"
           placeholder="Cari nama komponen LUCKY (misal: roda, rel, engsel, brecket)..." 
           class="w-full px-3.5 py-2 text-zinc-900 bg-zinc-100 border border-zinc-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-zinc-900 outline-none text-xs sm:text-sm placeholder-zinc-400"
@@ -2496,7 +2396,7 @@
           <span class="font-bold text-zinc-900" id="article-modal-author">Tim Teknis PropertyHits</span>
         </div>
         <div class="rounded-2xl overflow-hidden bg-zinc-50 my-4 h-64 sm:h-72 border border-zinc-200/80 flex items-center justify-center">
-          <img id="article-modal-img" src="" alt="Artikel" class="w-full h-full object-contain"/>
+          <img id="article-modal-img" src="" alt="Artikel" width="600" height="300" loading="lazy" decoding="async" class="w-full h-full object-contain"/>
         </div>
         <div id="article-modal-body" class="text-sm text-zinc-700 leading-relaxed space-y-4 font-normal">
           <!-- Populated by JS -->
@@ -2505,7 +2405,7 @@
         <!-- CTA Box inside Article -->
         <div class="mt-8 p-6 rounded-2xl bg-zinc-950 text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-zinc-800 shadow-xl">
           <div>
-            <h4 class="font-bold text-sm text-white">Butuh Bantuan Teknis Pintu Garasi?</h4>
+            <h3 class="font-bold text-sm text-white">Butuh Bantuan Teknis Pintu Garasi?</h3>
             <p class="text-xs text-zinc-400">Konsultasikan denah opening atau RAB langsung dengan Tim Teknis PropertyHits.</p>
           </div>
           <a 
@@ -2545,9 +2445,9 @@
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span> Google Sheets Dynamic Feed
             </span>
           </div>
-          <h3 class="text-xl sm:text-2xl font-black text-zinc-950">
+          <h2 class="text-xl sm:text-2xl font-black text-zinc-950">
             Daftar Lengkap Artikel &amp; Panduan Pintu Garasi
-          </h3>
+          </h2>
           <p class="text-xs text-zinc-500 mt-0.5">
             Panduan teknis resmi, perhitungan RAB, tips perawatan berkala, dan petunjuk instalasi rel WINA &amp; LUCKY.
           </p>
@@ -2584,9 +2484,11 @@
       <div class="px-5 sm:px-6 py-4 border-b border-zinc-100 bg-white flex flex-col md:flex-row md:items-center justify-between gap-4">
         <!-- Search Input -->
         <div class="relative flex-1 max-w-md">
+          <label for="articles-search-input" class="sr-only">Cari artikel dan panduan teknis</label>
           <input 
             type="text" 
             id="articles-search-input" 
+            aria-label="Cari artikel teknis berdasarkan judul atau topik" 
             oninput="filterArticlesCatalog()"
             placeholder="Cari artikel (kata kunci, judul, topik)..." 
             class="w-full bg-zinc-50 border border-zinc-300 focus:border-zinc-950 rounded-xl pl-9 pr-4 py-2 text-xs text-zinc-900 outline-none transition-colors"
@@ -2627,7 +2529,152 @@
   <!-- ========================================== -->
   <!-- JAVASCRIPT LOGIC                           -->
   <!-- ========================================== -->
-  <script>
+  <script defer>
+    /* ---------------------------------------------------- */
+    /* 0. SPA ROUTER & NAVIGATION HANDLERS (DEFERRED)        */
+    /* ---------------------------------------------------- */
+    window.sembunyikanSemuaHalaman = function() {
+      const ids = [
+        'halaman-beranda-utama',
+        'halaman-baca-artikel',
+        'halaman-daftar-artikel',
+        'halaman-tentang-kami',
+        'halaman-kebijakan'
+      ];
+      ids.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    };
+
+    window.tampilkanHalamanBeranda = function(scrollKeAtas) {
+      if (typeof currentActiveArticleSlug !== 'undefined') currentActiveArticleSlug = null;
+      window.sembunyikanSemuaHalaman();
+      var homeContainer = document.getElementById('halaman-beranda-utama');
+      if (homeContainer) homeContainer.classList.remove('hidden');
+      if (typeof updateSeoMetaTags === 'function') updateSeoMetaTags(null);
+      if (scrollKeAtas !== false) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    window.tampilkanHalamanTentangKami = function(pushState) {
+      if (typeof currentActiveArticleSlug !== 'undefined') currentActiveArticleSlug = null;
+      window.sembunyikanSemuaHalaman();
+      var el = document.getElementById('halaman-tentang-kami');
+      if (el) el.classList.remove('hidden');
+      if (pushState !== false) {
+        try { window.history.pushState({ page: 'tentang-kami' }, '', '#tentang-kami'); } catch(e){}
+      }
+      document.title = 'Tentang PropertyHits — Solusi Mekanikal Pintu Garasi Presisi';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.tampilkanHalamanKebijakan = function(pushState) {
+      if (typeof currentActiveArticleSlug !== 'undefined') currentActiveArticleSlug = null;
+      window.sembunyikanSemuaHalaman();
+      var el = document.getElementById('halaman-kebijakan');
+      if (el) el.classList.remove('hidden');
+      if (pushState !== false) {
+        try { window.history.pushState({ page: 'kebijakan' }, '', '#kebijakan'); } catch(e){}
+      }
+      document.title = 'Kebijakan Layanan & Ketentuan Garansi Resmi — PropertyHits';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.toggleMobileDrawer = function() {
+      var drawer = document.getElementById('mobile-nav-drawer');
+      if (!drawer) return;
+      var isClosed = drawer.classList.contains('pointer-events-none');
+      if (isClosed) {
+        drawer.classList.remove('pointer-events-none', 'opacity-0');
+        var panel = drawer.querySelector('.drawer-panel');
+        if (panel) panel.classList.remove('translate-x-full');
+      } else {
+        window.closeMobileDrawer();
+      }
+    };
+
+    window.closeMobileDrawer = function() {
+      var drawer = document.getElementById('mobile-nav-drawer');
+      if (!drawer) return;
+      var panel = drawer.querySelector('.drawer-panel');
+      if (panel) panel.classList.add('translate-x-full');
+      drawer.classList.add('opacity-0', 'pointer-events-none');
+    };
+
+    window.navigasiKeTentangKami = function(event) {
+      if (event && event.preventDefault) event.preventDefault();
+      window.closeMobileDrawer();
+      window.tampilkanHalamanTentangKami(true);
+    };
+
+    window.navigasiKeKebijakan = function(event) {
+      if (event && event.preventDefault) event.preventDefault();
+      window.closeMobileDrawer();
+      window.tampilkanHalamanKebijakan(true);
+    };
+
+    window.navigasiKeBeranda = function(event, targetHash) {
+      if (event && event.preventDefault) event.preventDefault();
+      window.closeMobileDrawer();
+      var newUrl = window.location.pathname + (targetHash ? targetHash : '');
+      try { window.history.pushState({ page: 'home' }, '', newUrl); } catch(e){}
+      window.tampilkanHalamanBeranda(false);
+      if (targetHash) {
+        setTimeout(function() {
+          var el = document.querySelector(targetHash);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    window.navigasiKeDaftarArtikel = function(event) {
+      if (event && event.preventDefault) event.preventDefault();
+      window.closeMobileDrawer();
+      if (typeof tampilkanHalamanDaftarArtikel === 'function') {
+        tampilkanHalamanDaftarArtikel();
+      } else {
+        window.location.search = '?blog=semua';
+      }
+    };
+
+    window.navigasiKeArtikel = function(event, slug) {
+      if (event && event.preventDefault) event.preventDefault();
+      window.closeMobileDrawer();
+      if (typeof ARTICLES !== 'undefined' && typeof tampilkanHalamanArtikel === 'function') {
+        var art = ARTICLES.find(function(a) { return a.slug === slug || String(a.id) === String(slug); });
+        if (art) {
+          try { window.history.pushState({ page: 'article', slug: art.slug }, '', window.location.pathname + '?artikel=' + art.slug); } catch(e){}
+          tampilkanHalamanArtikel(art);
+          return;
+        }
+      }
+      window.location.search = '?artikel=' + slug;
+    };
+
+    // Auto router listener for hash changes
+    window.addEventListener('hashchange', function() {
+      if (window.location.hash === '#tentang-kami') {
+        window.tampilkanHalamanTentangKami(false);
+      } else if (window.location.hash === '#kebijakan' || window.location.hash === '#kebijakan-garansi') {
+        window.tampilkanHalamanKebijakan(false);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.location.hash === '#tentang-kami') {
+        window.tampilkanHalamanTentangKami(false);
+      } else if (window.location.hash === '#kebijakan' || window.location.hash === '#kebijakan-garansi') {
+        window.tampilkanHalamanKebijakan(false);
+      }
+    });
+
+    /* ---------------------------------------------------- */
+    /* 1. PRODUK & MODAL KATALOG LOGIC                      */
+    /* ---------------------------------------------------- */
     // ----------------------------------------------------
     // DATA RESMI 44 PRODUK ASLI WINA (SHOPEE OFFICIAL)
     // ----------------------------------------------------
@@ -3120,6 +3167,9 @@
                   id="wina-grp-img-${gIdx}" 
                   src="${curItem.img}" 
                   alt="${curItem.name} Komponen Rel Pintu Garasi WINA" 
+                  width="300"
+                  height="300"
+                  style="max-width: 100%; height: auto; aspect-ratio: 1/1;" 
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-contain p-2.5 transition-transform duration-300 group-hover:scale-105 bg-white"
@@ -3245,6 +3295,9 @@
                   id="lucky-grp-img-${gIdx}" 
                   src="${curItem.img}" 
                   alt="${curItem.name} Komponen Rel Pintu Garasi LUCKY" 
+                  width="300"
+                  height="300"
+                  style="max-width: 100%; height: auto; aspect-ratio: 1/1;" 
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-contain p-2.5 transition-transform duration-300 group-hover:scale-105 bg-white"
@@ -4128,6 +4181,8 @@
                       id="wina-modal-grp-img-${gIdx}" 
                       src="${curItem.img}" 
                       alt="${curItem.name} Komponen Pintu Garasi WINA" 
+                      width="240"
+                      height="240"
                       class="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105 bg-white"
                       loading="lazy"
                       decoding="async"
@@ -4234,7 +4289,10 @@
                     <img 
                       src="${item.img}" 
                       alt="${item.name}" 
+                      width="240"
+                      height="240"
                       loading="lazy"
+                      decoding="async"
                       class="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105 bg-white"
                     />
                     <span class="absolute top-2.5 left-2.5 z-10 bg-emerald-700 text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm tracking-wide">
@@ -4255,13 +4313,13 @@
                       </span>
                     </div>
 
-                    <h4 
+                    <h3 
                       onclick="openWinaItemQuickView(${item.id}, true)"
                       class="text-xs sm:text-sm font-bold text-zinc-950 line-clamp-2 hover:text-zinc-600 cursor-pointer transition-colors leading-snug mb-1 tracking-tight"
                       title="${item.name}"
                     >
                       ${item.name}
-                    </h4>
+                    </h3>
                   </div>
                 </div>
 
@@ -4328,6 +4386,10 @@
                   <img 
                     src="${item.img}" 
                     alt="${item.variant}" 
+                    width="40"
+                    height="40"
+                    loading="lazy"
+                    decoding="async"
                     class="w-10 h-10 object-contain rounded-lg border border-zinc-200 mx-auto cursor-pointer hover:scale-110 transition-transform bg-white" 
                     onclick="openWinaItemQuickView(${item.id}, true)"
                   />
@@ -4482,6 +4544,8 @@
                     <img 
                       src="${item.img}" 
                       alt="${item.name} Komponen Pintu Garasi LUCKY" 
+                      width="240"
+                      height="240"
                       loading="lazy"
                       decoding="async"
                       class="w-full h-full object-contain p-2 transition-transform duration-300 group-hover:scale-105 bg-white"
@@ -4878,7 +4942,7 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
           "name": "PropertyHits - Distributor Rel Pintu Garasi WINA & LUCKY",
           "legalName": "PropertyHits",
           "url": "https://propertyhits.co.id/",
-          "logo": "https://propertyhits.co.id/assets/images/logos/propertyhits-logo-transparent.png",
+          "logo": "https://propertyhits.co.id/assets/images/logos/propertyhits-logo.webp",
           "image": DEFAULT_OG_IMG,
           "telephone": "+6285711749464",
           "priceRange": "Rp 16.800 - Rp 1.557.885",
@@ -4908,7 +4972,7 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
           "@id": "https://propertyhits.co.id/#organization",
           "name": "PropertyHits",
           "url": "https://propertyhits.co.id/",
-          "logo": "https://propertyhits.co.id/assets/images/logos/propertyhits-logo-transparent.png",
+          "logo": "https://propertyhits.co.id/assets/images/logos/propertyhits-logo.webp",
           "description": "Distributor resmi komponen hardware rel dan aksesoris pintu garasi kemitraan langsung dengan PT. Karya Mandiri Sepakat (Pabrikan WINA) dan CV. Karya Mandiri Maju (Pabrikan LUCKY).",
           "telephone": "+6285711749464",
           "address": {
@@ -5328,7 +5392,10 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
               <img 
                 src="${art.image}" 
                 alt="${art.title}" 
+                width="320"
+                height="200"
                 loading="lazy"
+                decoding="async"
                 onerror="this.onerror=null; this.src='${ARTICLE_FALLBACK_IMG}';"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -5338,7 +5405,7 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
               type="button" 
               onclick="toggleBookmark(event, '${art.slug}')" 
               class="bookmark-btn-${art.slug} absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10"
-              title="${isBookmarked ? 'Tersimpan di Bookmark' : 'Tandai / Simpan Artikel'}"
+              title="${isBookmarked ? 'Tersimpan di Bookmark' : 'Tandai / Simpan Artikel'}" aria-label="${isBookmarked ? 'Hapus bookmark artikel ini' : 'Simpan artikel ini ke bookmark'}"
             >
               <svg class="w-3.5 h-3.5 ${isBookmarked ? 'fill-amber-400 text-amber-400' : 'fill-none stroke-current'}" viewBox="0 0 24 24" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
@@ -5463,7 +5530,10 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
                 <img 
                   src="${art.image}" 
                   alt="${art.title}" 
+                  width="300"
+                  height="225"
                   loading="lazy"
+                  decoding="async"
                   onerror="this.onerror=null; this.src='${ARTICLE_FALLBACK_IMG}';"
                   class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-90"
                 />
@@ -5475,9 +5545,9 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
                   </div>
                   <div>
                     <span class="text-[10px] text-zinc-300 block mb-0.5">${art.date || 'Terbaru'}</span>
-                    <h4 class="text-xs sm:text-sm font-bold text-white leading-snug line-clamp-2 drop-shadow-sm group-hover:text-teal-300 transition-colors">
+                    <h3 class="text-xs sm:text-sm font-bold text-white leading-snug line-clamp-2 drop-shadow-sm group-hover:text-teal-300 transition-colors">
                       ${art.title}
-                    </h4>
+                    </h3>
                   </div>
                 </div>
               </a>
@@ -5485,7 +5555,7 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
                 type="button" 
                 onclick="toggleBookmark(event, '${art.slug}')" 
                 class="bookmark-btn-${art.slug} absolute top-2 right-2 w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-zinc-950/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-950/90 transition-all z-10"
-                title="${isBookmarked ? 'Tersimpan di Bookmark' : 'Tandai / Simpan Artikel'}"
+                title="${isBookmarked ? 'Tersimpan di Bookmark' : 'Tandai / Simpan Artikel'}" aria-label="${isBookmarked ? 'Hapus bookmark artikel ini' : 'Simpan artikel ini ke bookmark'}"
               >
                 <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 ${isBookmarked ? 'fill-amber-400 text-amber-400' : 'fill-none stroke-current'}" viewBox="0 0 24 24" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
@@ -5508,7 +5578,10 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
                 <img 
                   src="${featuredArticle.image}" 
                   alt="${featuredArticle.title}" 
+                  width="800"
+                  height="450"
                   loading="lazy"
+                  decoding="async"
                   onerror="this.onerror=null; this.src='${ARTICLE_FALLBACK_IMG}';"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -5534,11 +5607,11 @@ Rel bawah wajib ditanam rata (*flush*) dengan keramik atau plesteran lantai gara
                   TERBARU / UPDATED
                 </span>
               </div>
-              <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-zinc-950 group-hover:text-teal-700 transition-colors leading-tight mb-2">
+              <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-zinc-950 group-hover:text-teal-700 transition-colors leading-tight mb-2">
                 <a href="?artikel=${featuredArticle.slug}" onclick="navigasiKeArtikel(event, '${featuredArticle.slug}')">
                   ${featuredArticle.title}
                 </a>
-              </h2>
+              </h3>
               <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed line-clamp-3 mb-3">
                 ${featuredArticle.summary || ''}
               </p>
