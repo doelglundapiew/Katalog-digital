@@ -145,8 +145,11 @@
   <!-- Google Fonts: Asynchronous Non-Blocking Pattern (PageSpeed 95+ Mobile Optimized) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+  </noscript>
 
   <!-- Preload Critical Hero Banner Image (LCP Optimization) -->
   <link rel="preload" as="image" href="/assets/images/hero-banner.webp" type="image/webp" fetchpriority="high">
@@ -164,11 +167,6 @@
     }
   </style>
   <style data-purpose="custom-utilities">
-    /* Global layout-shift defense (CLS: 0) */
-    img {
-      max-width: 100%;
-      height: auto;
-    }
     .custom-scroll::-webkit-scrollbar {
       width: 5px;
     }
@@ -199,14 +197,13 @@
         onclick="navigasiKeBeranda(event)"
         aria-label="PropertyHits.co.id Beranda"
       >
-        <div class="h-9 sm:h-11 w-36 sm:w-44 flex items-center justify-start flex-shrink-0" style="aspect-ratio: 180/40; width: 144px; min-height: 36px;">
+        <div class="h-9 sm:h-11 flex items-center justify-start">
           <img 
             src="/assets/images/logos/propertyhits-logo.webp" 
             alt="Distributor Rel Pintu Garasi WINA dan LUCKY Resmi - PropertyHits Jakarta" 
             class="h-8 sm:h-10 w-auto object-contain"
             width="180"
             height="40"
-            style="max-width: 100%; height: auto; aspect-ratio: 180/40;"
             loading="eager"
             decoding="async"
           />
@@ -277,14 +274,13 @@
     <div class="drawer-panel absolute top-0 right-0 w-[300px] max-w-[85vw] h-full bg-white shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out z-10 p-5 overflow-y-auto">
       <div>
         <div class="flex items-center justify-between pb-4 mb-4 border-b border-zinc-100">
-          <div class="h-8 w-[140px] flex items-center justify-start flex-shrink-0" style="aspect-ratio: 140/32; min-height: 28px;">
+          <div class="h-8 flex items-center justify-start">
             <img 
               src="/assets/images/logos/propertyhits-logo.webp" 
               alt="Distributor Rel Pintu Garasi WINA dan LUCKY - PropertyHits" 
               class="h-7 w-auto object-contain" 
               width="140"
               height="32"
-              style="max-width: 100%; height: auto; aspect-ratio: 140/32;"
               loading="lazy"
               decoding="async"
             />
@@ -347,16 +343,15 @@
       <!-- ========================================== -->
       <!-- 2. HERO SECTION (CLEAN MINIMALIST INDUSTRIAL)-->
       <!-- ========================================== -->
-      <section id="beranda" aria-labelledby="hero-title" class="relative pt-8 pb-12 sm:pt-14 sm:pb-16 bg-white border-b border-zinc-100 overflow-hidden min-h-[560px] sm:min-h-[620px]" style="min-height: 560px;" data-purpose="hero-section">
+      <section id="beranda" aria-labelledby="hero-title" class="relative pt-8 pb-12 sm:pt-14 sm:pb-16 bg-white border-b border-zinc-100 overflow-hidden" data-purpose="hero-section">
         <!-- Background Image Hero (WINA-LUCKY Hardware & Garasi Modern) -->
-        <div class="absolute inset-0 z-0 pointer-events-none select-none w-full h-full overflow-hidden" style="min-height: 100%; aspect-ratio: 4/3;">
+        <div class="absolute inset-0 z-0 pointer-events-none select-none">
           <img 
             src="/assets/images/hero-banner.webp" 
             alt="Komponen Rel dan Roda Pintu Garasi WINA LUCKY PropertyHits Jakarta" 
             class="w-full h-full object-cover object-center sm:object-right md:object-center opacity-70" 
             width="800"
             height="600"
-            style="max-width: 100%; height: auto; aspect-ratio: 4/3;"
             fetchpriority="high"
             loading="eager"
             decoding="async"
@@ -937,7 +932,7 @@
         <article class="group cursor-pointer flex flex-col transition-all">
           <div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-zinc-100 mb-2.5 shadow-sm">
             <a href="?artikel=panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat" onclick="navigasiKeArtikel(event, 'panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat')" class="block w-full h-full" title="Panduan Menghitung Jumlah Daun &amp; Rel Pintu Garasi Tikung vs Lipat">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcZEk3MTh2OEFF18ZtgF0N5gMuSzkY5JVU2_lmsS069WVu6SI7UGQm7pCvAOYsPCz3QcPvav2Ce0OoMonmhXCbnbACFAyuV07r55zCBFHheAvwS5YyNzhe9oFootK6fQ-kBiUQKQ2kLJEFgMTomPAe9AD1bbO_cM0dh6p1WZsATBswE0Usuwy6K4Mjf57b4U4Cb3s5xAmMX4edIzsPLL4Jc0jQXxjQbMiUuMQ4SnJyzi8IKAGJAjpi" alt="Panduan Menghitung Jumlah Daun &amp; Rel Pintu Garasi Tikung vs Lipat" width="400" height="250" style="max-width: 100%; height: auto; aspect-ratio: 16/10;" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcZEk3MTh2OEFF18ZtgF0N5gMuSzkY5JVU2_lmsS069WVu6SI7UGQm7pCvAOYsPCz3QcPvav2Ce0OoMonmhXCbnbACFAyuV07r55zCBFHheAvwS5YyNzhe9oFootK6fQ-kBiUQKQ2kLJEFgMTomPAe9AD1bbO_cM0dh6p1WZsATBswE0Usuwy6K4Mjf57b4U4Cb3s5xAmMX4edIzsPLL4Jc0jQXxjQbMiUuMQ4SnJyzi8IKAGJAjpi" alt="Panduan Menghitung Jumlah Daun &amp; Rel Pintu Garasi Tikung vs Lipat" width="400" height="250" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </a>
             <button type="button" onclick="toggleBookmark(event, 'panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat')" class="bookmark-btn-panduan-menghitung-jumlah-daun-rel-pintu-garasi-tikung-vs-lipat absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel" aria-label="Tandai atau simpan artikel ini ke bookmark">
               <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
@@ -965,7 +960,7 @@
         <article class="group cursor-pointer flex flex-col transition-all">
           <div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-zinc-100 mb-2.5 shadow-sm">
             <a href="?artikel=perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda" onclick="navigasiKeArtikel(event, 'perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda')" class="block w-full h-full" title="Perbedaan Rel Garasi WINA vs LUCKY: Mana yang Tepat untuk Proyek Anda?">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjlI_2QmlCYaxoCQhFbEnsbt-yo-MG77Hig1fFtVkCov3HZbJbB6Ur6uLkP4-JzgEY_IzCzGKzg4bnyH4ARMN766XR4Qz_qZk5c4tBdJ43JQMdL8JPsnH2kw7YlILwENv8lyg9xcF17KNGNTZokukpfUhk9En6UEoQWLPw24ygvUlDz2cVSxFH6W5os1aK2YCXGxmWL-VLQRd0H4xWJMZngkwMMATeloET4dFVqAFdDpwUk5f-hYML" alt="Perbedaan Rel Garasi WINA vs LUCKY" width="400" height="250" style="max-width: 100%; height: auto; aspect-ratio: 16/10;" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjlI_2QmlCYaxoCQhFbEnsbt-yo-MG77Hig1fFtVkCov3HZbJbB6Ur6uLkP4-JzgEY_IzCzGKzg4bnyH4ARMN766XR4Qz_qZk5c4tBdJ43JQMdL8JPsnH2kw7YlILwENv8lyg9xcF17KNGNTZokukpfUhk9En6UEoQWLPw24ygvUlDz2cVSxFH6W5os1aK2YCXGxmWL-VLQRd0H4xWJMZngkwMMATeloET4dFVqAFdDpwUk5f-hYML" alt="Perbedaan Rel Garasi WINA vs LUCKY" width="400" height="250" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </a>
             <button type="button" onclick="toggleBookmark(event, 'perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda')" class="bookmark-btn-perbedaan-rel-garasi-wina-vs-lucky-mana-yang-tepat-untuk-proyek-anda absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel" aria-label="Tandai atau simpan artikel ini ke bookmark">
               <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
@@ -993,7 +988,7 @@
         <article class="group cursor-pointer flex flex-col transition-all">
           <div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-zinc-100 mb-2.5 shadow-sm">
             <a href="?artikel=tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun" onclick="navigasiKeArtikel(event, 'tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun')" class="block w-full h-full" title="Tips Perawatan Komponen Rel &amp; Roda Garasi agar Awet Puluhan Tahun">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsHazOzaIG5a4-5vBcXF9ikqaH_49sb6JBoVoeWVwYC8pNvkR3APOvji_tSXGwbHgAiIv0mTxQBJntGq9h_4SL2iQjU88MEIdAHnIHwVt3Q6_V8VdpfXppOxcFUW0yiCGkAqW8GSs7EOU0pPnsYL92rTjA07sw1h5RekZxtW4Z-8Flys6QINblh5zBr3BGlHduUEq1N6w60fYvar33bnTgI_3bsCN0ojDsdIRrVE5cyxhTvJ2kwGLd" alt="Tips Perawatan Komponen Rel &amp; Roda Garasi" width="400" height="250" style="max-width: 100%; height: auto; aspect-ratio: 16/10;" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsHazOzaIG5a4-5vBcXF9ikqaH_49sb6JBoVoeWVwYC8pNvkR3APOvji_tSXGwbHgAiIv0mTxQBJntGq9h_4SL2iQjU88MEIdAHnIHwVt3Q6_V8VdpfXppOxcFUW0yiCGkAqW8GSs7EOU0pPnsYL92rTjA07sw1h5RekZxtW4Z-8Flys6QINblh5zBr3BGlHduUEq1N6w60fYvar33bnTgI_3bsCN0ojDsdIRrVE5cyxhTvJ2kwGLd" alt="Tips Perawatan Komponen Rel &amp; Roda Garasi" width="400" height="250" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </a>
             <button type="button" onclick="toggleBookmark(event, 'tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun')" class="bookmark-btn-tips-perawatan-komponen-rel-roda-garasi-agar-awet-puluhan-tahun absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel" aria-label="Tandai atau simpan artikel ini ke bookmark">
               <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
@@ -1021,7 +1016,7 @@
         <article class="group cursor-pointer flex flex-col transition-all">
           <div class="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-zinc-100 mb-2.5 shadow-sm">
             <a href="?artikel=standar-instalasi-rel-atas-bracket-gantung" onclick="navigasiKeArtikel(event, 'standar-instalasi-rel-atas-bracket-gantung')" class="block w-full h-full" title="Standar Instalasi Rel Atas &amp; Bracket Gantung">
-              <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztp-mu6royur3rbb06@resize_w1080_nl.webp" alt="Standar Instalasi Rel Atas &amp; Bracket Gantung" width="400" height="250" style="max-width: 100%; height: auto; aspect-ratio: 16/10;" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="https://down-id.img.susercontent.com/file/id-11134207-81ztp-mu6royur3rbb06@resize_w1080_nl.webp" alt="Standar Instalasi Rel Atas &amp; Bracket Gantung" width="400" height="250" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </a>
             <button type="button" onclick="toggleBookmark(event, 'standar-instalasi-rel-atas-bracket-gantung')" class="bookmark-btn-standar-instalasi-rel-atas-bracket-gantung absolute top-2 right-2 w-7 h-7 rounded-lg bg-zinc-900/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-zinc-900/90 transition-all z-10" title="Tandai / Simpan Artikel" aria-label="Tandai atau simpan artikel ini ke bookmark">
               <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
@@ -1211,7 +1206,6 @@
             alt="Thumbnail Artikel Teknis" 
             width="800" 
             height="450" 
-            style="max-width: 100%; height: auto; aspect-ratio: 16/9;" 
             loading="lazy" 
             decoding="async" 
             class="w-full h-full object-contain"
@@ -3169,7 +3163,6 @@
                   alt="${curItem.name} Komponen Rel Pintu Garasi WINA" 
                   width="300"
                   height="300"
-                  style="max-width: 100%; height: auto; aspect-ratio: 1/1;" 
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-contain p-2.5 transition-transform duration-300 group-hover:scale-105 bg-white"
@@ -3297,7 +3290,6 @@
                   alt="${curItem.name} Komponen Rel Pintu Garasi LUCKY" 
                   width="300"
                   height="300"
-                  style="max-width: 100%; height: auto; aspect-ratio: 1/1;" 
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-contain p-2.5 transition-transform duration-300 group-hover:scale-105 bg-white"
